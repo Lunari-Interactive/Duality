@@ -1,22 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqo7ib2l535m3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rsle6"]
+size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3upde"]
 
 [node name="Level1" type="Node3D"]
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 83.1802)
+
+[node name="Room1" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Room1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 0)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room1/Floor"]
 mesh = SubResource("BoxMesh_rsle6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room1/Floor"]
 shape = SubResource("BoxShape3D_3upde")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 83.1802)
