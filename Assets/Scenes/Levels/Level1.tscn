@@ -10,14 +10,14 @@ size = Vector3(100, 1, 100)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 83.1802)
 
-[node name="Room1" type="Node" parent="."]
+[node name="Map" type="Node" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="Room1"]
+[node name="Floor" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 0)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room1/Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Floor"]
 mesh = SubResource("BoxMesh_rsle6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room1/Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_3upde")
