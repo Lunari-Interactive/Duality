@@ -15,7 +15,7 @@
 <h3 align="center">Duality</h3> 
 
   <p align="center">
-     A 2 Player Teamwork focused platformer game with 2D and 3D Aspects. This Game is made for GameJam+ 2024.
+     A 2 Player Teamwork focused platformer game with 2D and 3D Aspects set in a failed laboratory experiment 2 Players must find a way to escape the facility.
     <br />
  <!--   <a href="https://github.com/Lunari-Interactive/GD-Workshop-Demo"><strong>Explore the docs »</strong></a> 
     <br /> -->
@@ -54,7 +54,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-A simple platformer made as a Starter Template for Video Game Development. Created to immerse students of video game development as an introduction to the Unity Game Engine in a workshop environment @Rizal Technological University
+This Game is made as an entry to GameJam+ 2024. Developed by ArchEagle Interactive consisting of members from De La Salle University, Ateneo De Manila University, and De La Salle-College of Saint Benilde.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
