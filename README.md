@@ -15,7 +15,7 @@
 <h3 align="center">Duality</h3> 
 
   <p align="center">
-     A 2 Player Teamwork focused platformer game with 2D and 3D Aspects
+     A 2 Player Teamwork focused platformer game with 2D and 3D Aspects. This Game is made for GameJam+ 2024.
     <br />
  <!--   <a href="https://github.com/Lunari-Interactive/GD-Workshop-Demo"><strong>Explore the docs »</strong></a> 
     <br /> -->
@@ -61,33 +61,11 @@ A simple platformer made as a Starter Template for Video Game Development. Creat
 ### Built With
 
 * ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
-* ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)
 * ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Prerequisites
-* [Unity Hub](https://unity.com/download#how-get-started)
-* Unity Free Personal License
-* [Unity Version 2021.3.14f1 LTS Release](https://unity.com/releases/editor/qa/lts-releases?version=2021.3&major_version=2021&minor_version=3&page=2#:~:text=December%201%2C%202022-,LTS%20Release,2021.3.14f1,-Released%3A%20November)
-* [Visual Studio 2022 with Unity Game Development Tools](https://visualstudio.microsoft.com/vs/unity-tools/)
-
-### Installation
-
-1. Clone the repo or get it from [Releases](https://github.com/Lunari-Interactive/GD-Workshop-Demo/releases)
-   ```sh
-   git clone https://github.com/Lunari-Interactive/GD-Workshop-Demo.git
-   ```
-2. Open Unity Hub <br />
-
-3. On Projects Add (GD-Workshop-Demo\IntroToUnity)<br />
-   ![Unity Hub](images/uhub.png)
-   
-4. Select Editor version 2021.3.14f1 <br />
-   ![Unity Version](images/unityverpng.png)
 
 
 <!-- LICENSE -->
