@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqo7ib2l535m3"]
+[gd_scene load_steps=4 format=3 uid="uid://cqo7ib2l535m3"]
+
+[ext_resource type="PackedScene" uid="uid://csp5cjn50s8c1" path="res://Assets/Scenes/Player/Player.tscn" id="1_jomam"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rsle6"]
 size = Vector3(100, 1, 100)
@@ -6,9 +8,6 @@ size = Vector3(100, 1, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3upde"]
 
 [node name="Level1" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 83.1802)
 
 [node name="Map" type="Node" parent="."]
 
@@ -20,4 +19,12 @@ metadata/_edit_group_ = true
 mesh = SubResource("BoxMesh_rsle6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 shape = SubResource("BoxShape3D_3upde")
+
+[node name="Player" parent="Map" instance=ExtResource("1_jomam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7065, 1.59904, 13.0301)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.4431, 0)
+light_energy = 16.0
