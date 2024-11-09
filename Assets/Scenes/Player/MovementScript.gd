@@ -1,16 +1,21 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
 @onready var pivot: Node3D = $CamOrigin
 @export var sensitivity = 0.5
+@export var is2D = false
+
+@onready var _2d_camera: Camera3D = $"2DCamera"
+@onready var camera_3d: Camera3D = $CamOrigin/SpringArm3D/Camera3D
+
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if !is2D: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && !is2D:
 		rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 		pivot.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(45))
@@ -19,6 +24,19 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if Input.is_action_just_pressed("SwitchCam"):
+		if(is2D):
+			is2D = false
+			print("is3D")
+	if Input.is_action_just_pressed("SwitchCam3D"):
+		if(!is2D):
+			is2D = true
+
+	if is2D:
+		_2d_camera.set_current(true)
+	if !is2D:
+		camera_3d.set_current(true)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -27,10 +45,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ExitGame"):
 		get_tree().quit();
 
+	var direction
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if !is2D:
+		direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	else:
+		direction = (transform.basis * Vector3(0, 0, -input_dir.x)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

@@ -10,6 +10,7 @@ size = Vector3(1, 2, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_adhkf")
+is2D = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -30,3 +31,6 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.648798, 7.448)
 fov = 61.9
 near = 0.017
+
+[node name="2DCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2, 0)
