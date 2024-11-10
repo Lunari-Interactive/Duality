@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqo7ib2l535m3"]
+[gd_scene load_steps=13 format=3 uid="uid://cqo7ib2l535m3"]
 
 [ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_btw1h"]
 [ext_resource type="PackedScene" uid="uid://csp5cjn50s8c1" path="res://Assets/Scenes/Player/Player1.tscn" id="1_oqa72"]
 [ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_dl0qj"]
 [ext_resource type="PackedScene" uid="uid://dcoj76ecr8vst" path="res://Assets/Prefabs/Portal.fbx" id="3_52sex"]
 [ext_resource type="PackedScene" uid="uid://dl6uut5cn41mo" path="res://Assets/Prefabs/Cube.tscn" id="3_a3ifa"]
+[ext_resource type="PackedScene" uid="uid://bykpsb7fx1njj" path="res://Assets/Audio/menu_bgm.tscn" id="6_dykjd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hg62e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,8 +19,11 @@ background_mode = 2
 sky = SubResource("Sky_ygvb4")
 reflected_light_source = 2
 tonemap_mode = 2
+tonemap_exposure = 1.5
 tonemap_white = 8.0
 glow_enabled = true
+fog_light_energy = 0.12
+fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5uf7"]
 roughness_texture = ExtResource("2_dl0qj")
@@ -40,18 +44,42 @@ size = Vector3(100, 1, 100)
 environment = SubResource("Environment_shqns")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.968583, -0.069799, 0.238694, 0, 0.959805, 0.280667, -0.24869, 0.271849, -0.929651, 0, 0, 0)
+transform = Transform3D(-0.968583, -0.069799, 0.238694, 0, 0.959805, 0.280667, -0.24869, 0.271849, -0.929651, 0.0381889, 3.8147e-06, 0.177586)
 shadow_enabled = true
 
 [node name="Map" type="Node" parent="."]
 
+[node name="Cube" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -17.9221, 0.903047, -12.2042)
+
+[node name="Cube" parent="Map/Cube" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.151486, 0.487913, -2.16195)
+
+[node name="Cube" parent="Map/Cube/Cube" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.0884824, -0.306318, -2.27891)
+
+[node name="Cube" parent="Map/Cube/Cube/Cube" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.0746727, -0.671462, -3.04257)
+
+[node name="Cube2" parent="Map/Cube" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -2.13454, -1.82815, -7.51992)
+
+[node name="Cube" parent="Map/Cube/Cube2" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, 0.758815, 0.487913, -2.87505)
+
+[node name="Cube" parent="Map/Cube/Cube2/Cube" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.970278, -0.0390023, -2.74701)
+
 [node name="Floor" type="StaticBody3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2565, -0.65778, -43.9368)
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Floor"]
+transform = Transform3D(0.502648, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rsle6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
+transform = Transform3D(0.502648, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_5cx1l")
 
 [node name="Player1_Spawn" type="Node3D" parent="Map/Floor"]
@@ -61,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -26.806)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -26.806)
 
 [node name="Floor2" type="StaticBody3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 306.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2565, -0.65778, 262.323)
 
 [node name="SwitchPlayerVision" parent="Map/Floor2" instance=ExtResource("3_a3ifa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -73,19 +101,33 @@ mesh = SubResource("BoxMesh_rsle6")
 shape = SubResource("BoxShape3D_5cx1l")
 
 [node name="Wall" parent="Map" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7435, 11.8888, -43.9368)
 
 [node name="Wall2" parent="Map" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.2565, 11.8888, -43.9368)
 
 [node name="WallDoor" parent="Map" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 12, 50)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.2565, 11.8888, 6.06324)
 
 [node name="Wall3" parent="Map" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 12, -50)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.2565, 11.8888, -93.9368)
+
+[node name="Cube2" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(1, 0, 0, 0, 58.2146, 0, 0, 0, 170.883, -46.5138, -13.0645, -57.4381)
+
+[node name="MeshInstance3D" parent="Map/Cube2" index="0"]
+skeleton = NodePath("../../Cube2")
+metadata/_edit_lock_ = true
 
 [node name="Portal" parent="." instance=ExtResource("3_52sex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -33.5725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8848, 9.4025, -73.3309)
 
 [node name="Player" parent="." instance=ExtResource("1_oqa72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1509, -0.046589, -9.68302)
+
+[node name="MenuBGM" parent="." instance=ExtResource("6_dykjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.695114, -0.0465909, 0.125046)
+autoplay = false
+max_distance = 4096.0
+
+[editable path="Map/Cube2"]

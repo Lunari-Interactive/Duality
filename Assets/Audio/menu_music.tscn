@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b81wvc4ouhea3"]
+
+[ext_resource type="AudioStream" uid="uid://fmno6hxj8o1b" path="res://Assets/Audio/Pixels.mp3" id="1_rdhq4"]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rdhq4")
+autoplay = true

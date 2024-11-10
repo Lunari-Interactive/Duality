@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://1wrio32jtlpa"]
+[gd_scene load_steps=13 format=3 uid="uid://1wrio32jtlpa"]
 
 [ext_resource type="Texture2D" uid="uid://dpeb8egh27bt6" path="res://Assets/Images/Menus/Panels/PanelHQ.png" id="1_ol5nd"]
 [ext_resource type="Script" path="res://Assets/Levels/MainMenu.gd" id="1_os6by"]
 [ext_resource type="Texture2D" uid="uid://cp05egbg0061x" path="res://Assets/Images/Menus/Buttons/Button_Confirm.png" id="2_jtq6l"]
 [ext_resource type="Texture2D" uid="uid://bivu8sir28qdk" path="res://Assets/Images/Menus/Buttons/Button.png" id="3_f4535"]
+[ext_resource type="PackedScene" uid="uid://b81wvc4ouhea3" path="res://Assets/Audio/menu_music.tscn" id="5_ma8uo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrufs"]
 texture = ExtResource("1_ol5nd")
@@ -132,6 +133,8 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_b8tot")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s0a1k")
 text = "Quit To Desktop
 "
+
+[node name="MenuMusic" parent="." instance=ExtResource("5_ma8uo")]
 
 [connection signal="pressed" from="VBoxContainer/StartNewGameButton" to="." method="_on_start_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]

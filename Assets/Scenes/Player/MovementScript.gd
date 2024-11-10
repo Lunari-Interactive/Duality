@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 @export var SPEED = 5.0
-@export var JUMP_VELOCITY = 4.5
+@export var JUMP_VELOCITY = 10
 @onready var pivot: Node3D = $CamOrigin
 @export var sensitivity = 0.5
 @export var cameraTrimX = 5.0
