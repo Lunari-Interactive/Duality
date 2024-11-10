@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_btw1h"]
 [ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_dl0qj"]
-[ext_resource type="PackedScene" uid="uid://dcoj76ecr8vst" path="res://Assets/Prefabs/Portal.fbx" id="3_1a4pl"]
+[ext_resource type="PackedScene" uid="uid://co2tf733fn0iu" path="res://Assets/Scenes/Player/Player2.tscn" id="3_xh3bp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hg62e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,7 +26,7 @@ fog_sky_affect = 0.0
 roughness_texture = ExtResource("2_dl0qj")
 normal_enabled = true
 normal_texture = ExtResource("1_btw1h")
-uv1_scale = Vector3(10, 10, 10)
+uv1_scale = Vector3(48, 48, 48)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rsle6"]
 material = SubResource("StandardMaterial3D_l5uf7")
@@ -56,5 +56,5 @@ mesh = SubResource("BoxMesh_rsle6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_5cx1l")
 
-[node name="Portal" parent="." instance=ExtResource("3_1a4pl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.7514, -0.046589, -46.0955)
+[node name="Player" parent="." instance=ExtResource("3_xh3bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83852, -0.046589, -2.47496)
