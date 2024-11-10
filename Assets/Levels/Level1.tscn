@@ -1,14 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqo7ib2l535m3"]
+[gd_scene load_steps=10 format=3 uid="uid://cqo7ib2l535m3"]
 
-[ext_resource type="PackedScene" uid="uid://csp5cjn50s8c1" path="res://Assets/Scenes/Player/Player1.tscn" id="1_oqa72"]
+[ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_btw1h"]
+[ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_dl0qj"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/Player/Player2.tscn" id="3_xh3bp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hg62e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ygvb4"]
+sky_material = SubResource("ProceduralSkyMaterial_hg62e")
+
+[sub_resource type="Environment" id="Environment_shqns"]
+background_mode = 2
+sky = SubResource("Sky_ygvb4")
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 8.0
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5uf7"]
+roughness_texture = ExtResource("2_dl0qj")
+normal_enabled = true
+normal_texture = ExtResource("1_btw1h")
+uv1_scale = Vector3(48, 48, 48)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rsle6"]
+material = SubResource("StandardMaterial3D_l5uf7")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cx1l"]
 size = Vector3(100, 1, 100)
 
 [node name="Level1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_shqns")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.968583, -0.069799, 0.238694, 0, 0.959805, 0.280667, -0.24869, 0.271849, -0.929651, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Map" type="Node" parent="."]
 
@@ -22,11 +53,5 @@ mesh = SubResource("BoxMesh_rsle6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_5cx1l")
 
-[node name="Player" parent="." instance=ExtResource("1_oqa72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106857, -0.076067, -0.0160185)
-is2D = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.948302, 0.317371, 0, -0.317371, -0.948302, 0, 49.864, 0)
-light_color = Color(1, 1, 0.815686, 1)
-shadow_enabled = true
+[node name="Player" parent="." instance=ExtResource("3_xh3bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192403, -0.046589, -0.493411)
