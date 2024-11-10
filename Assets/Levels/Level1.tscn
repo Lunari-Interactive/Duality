@@ -16,8 +16,11 @@ background_mode = 2
 sky = SubResource("Sky_ygvb4")
 reflected_light_source = 2
 tonemap_mode = 2
+tonemap_exposure = 1.5
 tonemap_white = 8.0
 glow_enabled = true
+fog_light_energy = 0.12
+fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5uf7"]
 roughness_texture = ExtResource("2_dl0qj")
