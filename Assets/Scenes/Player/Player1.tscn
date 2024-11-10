@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://csp5cjn50s8c1"]
+[gd_scene load_steps=5 format=3 uid="uid://csp5cjn50s8c1"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Player/MovementScript.gd" id="1_adhkf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f7jd8"]
-size = Vector3(1, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nrs44"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yw444"]
-size = Vector3(1, 2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flij0"]
+albedo_color = Color(0.206035, 0.434082, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pvf2a"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_adhkf")
@@ -14,11 +15,12 @@ is2D = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_f7jd8")
+shape = SubResource("CapsuleShape3D_nrs44")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_yw444")
+material_overlay = SubResource("StandardMaterial3D_flij0")
+mesh = SubResource("CapsuleMesh_pvf2a")
 
 [node name="CamOrigin" type="Node3D" parent="."]
 
@@ -33,4 +35,6 @@ fov = 61.9
 near = 0.017
 
 [node name="2DCamera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2, 0)
+auto_translate_mode = 1
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2, 0)
+top_level = true

@@ -79,6 +79,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fq3ih")
 
 [node name="BackToHome" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 522.0
 offset_top = 600.0
 offset_right = 649.0
@@ -95,6 +96,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_mum3t")
 text = "Back To Menu"
 
 [node name="LoadLocalLevel" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 754.0
 offset_top = 216.0
 offset_right = 881.0

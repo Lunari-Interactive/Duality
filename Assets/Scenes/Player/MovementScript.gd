@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 @onready var _2d_camera: Camera3D = $"2DCamera"
 @onready var camera_3d: Camera3D = $CamOrigin/SpringArm3D/Camera3D
+@onready var player: CharacterBody3D = $"."
 
 
 func _ready() -> void:
@@ -28,13 +29,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("SwitchCam"):
 		if(is2D):
 			is2D = false
+			
 			print("is3D")
 	if Input.is_action_just_pressed("SwitchCam3D"):
 		if(!is2D):
 			is2D = true
+			rotation = Vector3(0,0,0)
 
 	if is2D:
 		_2d_camera.set_current(true)
+		_2d_camera.position.z = player.position.z
+		_2d_camera.position.x = player.position.x + 5
 	if !is2D:
 		camera_3d.set_current(true)
 
