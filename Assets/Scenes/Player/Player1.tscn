@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://csp5cjn50s8c1"]
+[gd_scene load_steps=6 format=3 uid="uid://csp5cjn50s8c1"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Player/MovementScript.gd" id="1_adhkf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nrs44"]
+radius = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flij0"]
 albedo_color = Color(0.206035, 0.434082, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pvf2a"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bweox"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_adhkf")
 is2D = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_nrs44")
 
@@ -38,3 +43,9 @@ near = 0.017
 auto_translate_mode = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 2, 0)
 top_level = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_bweox")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

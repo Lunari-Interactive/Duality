@@ -69,3 +69,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("VisionSwitch3D") && !is2D:
+		is2D = true
+		print("2D")
+	if area.is_in_group("VisionSwitch2D") && is2D:
+		is2D = false
+		print("3D")

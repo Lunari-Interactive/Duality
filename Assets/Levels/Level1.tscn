@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqo7ib2l535m3"]
+[gd_scene load_steps=12 format=3 uid="uid://cqo7ib2l535m3"]
 
 [ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_btw1h"]
+[ext_resource type="PackedScene" uid="uid://csp5cjn50s8c1" path="res://Assets/Scenes/Player/Player1.tscn" id="1_oqa72"]
 [ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_dl0qj"]
-[ext_resource type="PackedScene" uid="uid://co2tf733fn0iu" path="res://Assets/Scenes/Player/Player2.tscn" id="3_xh3bp"]
+[ext_resource type="PackedScene" uid="uid://dcoj76ecr8vst" path="res://Assets/Prefabs/Portal.fbx" id="3_52sex"]
+[ext_resource type="PackedScene" uid="uid://dl6uut5cn41mo" path="res://Assets/Prefabs/Cube.tscn" id="3_a3ifa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hg62e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,11 +18,8 @@ background_mode = 2
 sky = SubResource("Sky_ygvb4")
 reflected_light_source = 2
 tonemap_mode = 2
-tonemap_exposure = 1.5
 tonemap_white = 8.0
 glow_enabled = true
-fog_light_energy = 0.12
-fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5uf7"]
 roughness_texture = ExtResource("2_dl0qj")
@@ -48,7 +47,6 @@ shadow_enabled = true
 
 [node name="Floor" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 0)
-metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Floor"]
 mesh = SubResource("BoxMesh_rsle6")
@@ -56,5 +54,38 @@ mesh = SubResource("BoxMesh_rsle6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_5cx1l")
 
-[node name="Player" parent="." instance=ExtResource("3_xh3bp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83852, -0.046589, -2.47496)
+[node name="Player1_Spawn" type="Node3D" parent="Map/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -26.806)
+
+[node name="Player2_Spawn" type="Node3D" parent="Map/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -26.806)
+
+[node name="Floor2" type="StaticBody3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546589, 306.26)
+
+[node name="SwitchPlayerVision" parent="Map/Floor2" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Floor2"]
+mesh = SubResource("BoxMesh_rsle6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor2"]
+shape = SubResource("BoxShape3D_5cx1l")
+
+[node name="Wall" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 12, 0)
+
+[node name="Wall2" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 12, 0)
+
+[node name="WallDoor" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 12, 50)
+
+[node name="Wall3" parent="Map" instance=ExtResource("3_a3ifa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 12, -50)
+
+[node name="Portal" parent="." instance=ExtResource("3_52sex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -33.5725)
+
+[node name="Player" parent="." instance=ExtResource("1_oqa72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1509, -0.046589, -9.68302)
