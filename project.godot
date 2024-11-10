@@ -15,10 +15,6 @@ run/main_scene="res://Assets/Levels/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-
 [dotnet]
 
 project/assembly_name="Duality"
