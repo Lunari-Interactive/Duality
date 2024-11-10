@@ -59,16 +59,16 @@ transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.151486, 0.487913,
 transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.0884824, -0.306318, -2.27891)
 
 [node name="Cube" parent="Map/Cube/Cube/Cube" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.0746727, -0.671462, -3.04257)
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.0746727, -0.375772, -3.47023)
 
 [node name="Cube2" parent="Map/Cube" instance=ExtResource("3_a3ifa")]
 transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -2.13454, -1.82815, -7.51992)
 
 [node name="Cube" parent="Map/Cube/Cube2" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, 0.758815, 0.487913, -2.87505)
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, 0.758815, 0.487913, -2.83673)
 
 [node name="Cube" parent="Map/Cube/Cube2/Cube" instance=ExtResource("3_a3ifa")]
-transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.970278, -0.0390023, -2.74701)
+transform = Transform3D(2.14, 0, 0, 0, 2.14, 0, 0, 0, 2.14, -0.970278, -0.0390023, -5.02716)
 
 [node name="Floor" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2565, -0.65778, -43.9368)
@@ -120,7 +120,7 @@ skeleton = NodePath("../../Cube2")
 metadata/_edit_lock_ = true
 
 [node name="Portal" parent="." instance=ExtResource("3_52sex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8848, 9.4025, -73.3309)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7171, 9.50092, -89.7836)
 
 [node name="Player" parent="." instance=ExtResource("1_oqa72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1509, -0.046589, -9.68302)
