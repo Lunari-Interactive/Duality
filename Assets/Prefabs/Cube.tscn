@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl6uut5cn41mo"]
+[gd_scene load_steps=6 format=3 uid="uid://dl6uut5cn41mo"]
+
+[ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_r77s6"]
+[ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_k58h7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iao2"]
+roughness_texture = ExtResource("2_k58h7")
+normal_enabled = true
+normal_texture = ExtResource("1_r77s6")
+uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d5xkt"]
+material = SubResource("StandardMaterial3D_5iao2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2q4c3"]
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="Cube" type="StaticBody3D"]
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
