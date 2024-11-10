@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://1wrio32jtlpa"]
+[gd_scene load_steps=14 format=3 uid="uid://1wrio32jtlpa"]
 
 [ext_resource type="Texture2D" uid="uid://dpeb8egh27bt6" path="res://Assets/Images/Menus/Panels/PanelHQ.png" id="1_ol5nd"]
 [ext_resource type="Script" path="res://Assets/Levels/MainMenu.gd" id="1_os6by"]
 [ext_resource type="Texture2D" uid="uid://cp05egbg0061x" path="res://Assets/Images/Menus/Buttons/Button_Confirm.png" id="2_jtq6l"]
 [ext_resource type="Texture2D" uid="uid://bivu8sir28qdk" path="res://Assets/Images/Menus/Buttons/Button.png" id="3_f4535"]
 [ext_resource type="PackedScene" uid="uid://b81wvc4ouhea3" path="res://Assets/Audio/menu_music.tscn" id="5_ma8uo"]
+[ext_resource type="Texture2D" uid="uid://drftjv576d5sk" path="res://Assets/Images/Menus/TITLEREAL.png" id="6_8yuu4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrufs"]
 texture = ExtResource("1_ol5nd")
@@ -135,6 +136,10 @@ text = "Quit To Desktop
 "
 
 [node name="MenuMusic" parent="." instance=ExtResource("5_ma8uo")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(544, 93)
+texture = ExtResource("6_8yuu4")
 
 [connection signal="pressed" from="VBoxContainer/StartNewGameButton" to="." method="_on_start_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
