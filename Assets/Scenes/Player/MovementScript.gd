@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 4.5
 @onready var pivot: Node3D = $CamOrigin
 @export var sensitivity = 0.5
+@export var cameraTrimX = 5.0
 @export var is2D = false
 
 @onready var _2d_camera: Camera3D = $"2DCamera"
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if is2D:
 		_2d_camera.set_current(true)
 		_2d_camera.position.z = player.position.z
-		_2d_camera.position.x = player.position.x + 5
+		_2d_camera.position.x = player.position.x + cameraTrimX
 	if !is2D:
 		camera_3d.set_current(true)
 
