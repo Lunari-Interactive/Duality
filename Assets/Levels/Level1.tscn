@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://oma0v44tgdom" path="res://granite_tile_nor_gl_1k.png" id="1_btw1h"]
 [ext_resource type="Texture2D" uid="uid://4emxt5sc3l63" path="res://granite_tile_rough_1k.png" id="2_dl0qj"]
-[ext_resource type="PackedScene" path="res://Assets/Scenes/Player/Player2.tscn" id="3_xh3bp"]
+[ext_resource type="PackedScene" uid="uid://co2tf733fn0iu" path="res://Assets/Scenes/Player/Player2.tscn" id="3_xh3bp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hg62e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,4 +54,4 @@ mesh = SubResource("BoxMesh_rsle6")
 shape = SubResource("BoxShape3D_5cx1l")
 
 [node name="Player" parent="." instance=ExtResource("3_xh3bp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192403, -0.046589, -0.493411)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83852, -0.046589, -2.47496)
